@@ -9,3 +9,14 @@ const formatValue = (value: FormatValueType): FormatValueType => {
     return !value;
   }
 };
+
+type GetLengthType = number[] | string;
+
+const getLength = (input: GetLengthType): number => {
+  if (typeof input === "string") {
+    return input.length;
+  } else if (Array.isArray(input)) {
+    return input.length;
+  }
+  return 0;
+};
