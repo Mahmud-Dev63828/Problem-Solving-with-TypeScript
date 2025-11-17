@@ -89,3 +89,39 @@ const myBook: Book = {
 };
 
 printBookDetails(myBook);
+
+const getUniqueValues = (
+  arr1: (string | number)[],
+  arr2: (string | number)[]
+): (string | number)[] => {
+  const result: (string | number)[] = [];
+
+  for (let i = 0; i < arr1.length; i++) {
+    let alreadyExists = false;
+    for (let j = 0; j < result.length; j++) {
+      if (arr1[i] === result[j]) {
+        alreadyExists = true;
+        break;
+      }
+    }
+    if (!alreadyExists) result[result.length] = arr1[i];
+  }
+
+  for (let i = 0; i < arr2.length; i++) {
+    let alreadyExists = false;
+    for (let j = 0; j < result.length; j++) {
+      if (arr2[i] === result[j]) {
+        alreadyExists = true;
+        break;
+      }
+    }
+    if (!alreadyExists) result[result.length] = arr2[i];
+  }
+
+  return result;
+};
+
+const array1 = [1, 2, 3, 4, 5];
+const array2 = [3, 4, 5, 6, 7];
+
+getUniqueValues(array1, array2);
