@@ -97,25 +97,25 @@ const getUniqueValues = (
   const result: (string | number)[] = [];
 
   for (let i = 0; i < arr1.length; i++) {
-    let alreadyExists = false;
+    let alreadyExisst = false;
     for (let j = 0; j < result.length; j++) {
       if (arr1[i] === result[j]) {
-        alreadyExists = true;
+        alreadyExisst = true;
         break;
       }
     }
-    if (!alreadyExists) result[result.length] = arr1[i];
+    if (!alreadyExisst) result[result.length] = arr1[i];
   }
 
   for (let i = 0; i < arr2.length; i++) {
-    let alreadyExists = false;
+    let alreadyExisst = false;
     for (let j = 0; j < result.length; j++) {
       if (arr2[i] === result[j]) {
-        alreadyExists = true;
+        alreadyExisst = true;
         break;
       }
     }
-    if (!alreadyExists) result[result.length] = arr2[i];
+    if (!alreadyExisst) result[result.length] = arr2[i];
   }
 
   return result;
@@ -124,4 +124,29 @@ const getUniqueValues = (
 const array1 = [1, 2, 3, 4, 5];
 const array2 = [3, 4, 5, 6, 7];
 
-getUniqueValues(array1, array2);
+type Product = {
+  name: string;
+  price: number;
+  quantity: number;
+  discount?: number;
+};
+
+const calculateTotalPrice = (products: Product[]): number => {
+  if (products.length === 0) {
+    return 0;
+  }
+
+  return products.reduce((total, product) => {
+    const discount = product.discount ? product.discount : 0;
+    const discountPrice = product.price * (1 - discount / 100);
+    return total + discountPrice * product.quantity;
+  }, 0);
+};
+
+const products = [
+  { name: "Pen", price: 10, quantity: 2 },
+  { name: "Notebook", price: 25, quantity: 3, discount: 10 },
+  { name: "Bag", price: 50, quantity: 1, discount: 20 },
+];
+
+calculateTotalPrice(products);
