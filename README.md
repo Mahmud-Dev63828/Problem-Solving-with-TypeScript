@@ -1,6 +1,6 @@
 # Type ও Interface এর মাঝে পার্থক্য ➖
 
-## ১. Declaration Style
+## 1. Declaration Style
 
 **Interface**
 
@@ -33,7 +33,7 @@ Type extend-equivalent
 type Person = { name: string };
 type Employee = Person & { salary: number };
 
-3. Merge হওয়া
+## 3. Merge হওয়া
 
 Interface merge হয়
 
@@ -66,7 +66,7 @@ type Point = [number, number];
 type Add = (a: number, b: number) => number;
 
 
-5. Function ও Union Type
+# 5. Function ও Union Type
 
 Interface দিয়ে union define করা যায় না
 
